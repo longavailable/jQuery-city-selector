@@ -1,4 +1,5 @@
-﻿
+const specialValues = [11, 12, 31, 71, 50, 81, 82];
+
 function initComplexArea(a, k, h, p, q, d, b, l) {
     var f = initComplexArea.arguments;
     var m = document.getElementById(a);
@@ -9,23 +10,35 @@ function initComplexArea(a, k, h, p, q, d, b, l) {
     if (p != undefined) {
         if (d != undefined) {
             d = parseInt(d);
+			
+			if (specialValues.includes(d)) {
+				if ($("#" + h + "_div"))
+				{ $("#" + h + "_div").hide(); }
+			}
+			else {
+				if ($("#" + h + "_div")) { $("#" + h + "_div").show(); }
+			}
+			
+			if (b != undefined) {
+				b = parseInt(b);
+				
+				if (l != undefined) {
+					l = parseInt(l);
+				}
+				else {
+					l = 0;
+				}
+			}
+			else {
+				b = 0;
+			}
         }
         else {
             d = 0;
         }
-        if (b != undefined) {
-            b = parseInt(b);
-        }
-        else {
-            b = 0;
-        }
-        if (l != undefined) {
-            l = parseInt(l);
-        }
-        else {
-            l = 0;
-        }
+		//省市区情形，区默认不可用
         n[0] = new Option("请选择 ", 0);
+		
         for (e = 0; e < p.length; e++) {
             if (p[e] == undefined) {
                 continue;
@@ -67,7 +80,7 @@ function changeComplexProvince(f, k, e, d) {
         }
     }
     removeOptions(g); g[0] = new Option("请选择 ", 0);
-    if (f == 11 || f == 12 || f == 31 || f == 71 || f == 50 || f == 81 || f == 82) {
+    if (specialValues.includes(f)) {
         if ($("#" + d + "_div"))
         { $("#" + d + "_div").hide(); }
     }
