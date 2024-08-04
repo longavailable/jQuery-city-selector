@@ -23,7 +23,7 @@ function initComplexArea(a, k, h, p, q, d, b, l) {
             l = parseInt(l);
         }
         else {
-            l = 0
+            l = 0;
         }
         n[0] = new Option("请选择 ", 0);
         for (e = 0; e < p.length; e++) {
