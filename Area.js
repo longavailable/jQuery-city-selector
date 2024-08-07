@@ -74,7 +74,8 @@ function changeComplexProvince(f, k, e, d) {
 	var h = document.getElementById(e);
 	var g = document.getElementById(d); 
 	var b = 0; 
-	var a = 0; 
+	var a = 0;
+	//市州一级
 	removeOptions(h); 
 	f = parseInt(f);
 	if (k[f] != undefined) {
@@ -84,14 +85,18 @@ function changeComplexProvince(f, k, e, d) {
 		    h[a] = new Option(k[f][b], b); a++
 		}
 	}
+	//区县一级
 	removeOptions(g);
-	g[0] = new Option("请选择 ", 0);
 	if (specialValues.includes(f)) {
-		if ($("#" + d + "_div"))
-		{ $("#" + d + "_div").hide(); }
+		if ($("#" + d + "_div")){
+			$("#" + d + "_div").hide();
+		}
 	}
 	else {
-		if ($("#" + d + "_div")) { $("#" + d + "_div").show(); }
+		if ($("#" + d + "_div")) {
+			$("#" + d + "_div").show();
+		}
+		g[0] = new Option("请选择 ", 0);
 	}
 }
 
