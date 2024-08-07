@@ -70,27 +70,32 @@ function initComplexArea(a, k, h, p, q, d, b, l) {
     }
 }
 function changeComplexProvince(f, k, e, d) {
-    var c = changeComplexProvince.arguments; var h = document.getElementById(e);
-    var g = document.getElementById(d); var b = 0; var a = 0; removeOptions(h); f = parseInt(f);
-    if (k[f] != undefined) {
-        for (b = 0; b < k[f].length; b++) {
-            if (k[f][b] == undefined) { continue }
-            if (c[3]) { if ((c[3] == true) && (f != 71) && (f != 81) && (f != 82)) { if ((b % 100) == 0) { continue } } }
-            h[a] = new Option(k[f][b], b); a++
-        }
-    }
-    removeOptions(g); g[0] = new Option("请选择 ", 0);
-    if (specialValues.includes(f)) {
-        if ($("#" + d + "_div"))
-        { $("#" + d + "_div").hide(); }
-    }
-    else {
-        if ($("#" + d + "_div")) { $("#" + d + "_div").show(); }
-    }
+	var c = changeComplexProvince.arguments;
+	var h = document.getElementById(e);
+	var g = document.getElementById(d); 
+	var b = 0; 
+	var a = 0; 
+	removeOptions(h); 
+	f = parseInt(f);
+	if (k[f] != undefined) {
+		for (b = 0; b < k[f].length; b++) {
+		    if (k[f][b] == undefined) { continue }
+		    if (c[3]) { if ((c[3] == true) && (f != 71) && (f != 81) && (f != 82)) { if ((b % 100) == 0) { continue } } }
+		    h[a] = new Option(k[f][b], b); a++
+		}
+	}
+	removeOptions(g);
+	g[0] = new Option("请选择 ", 0);
+	if (specialValues.includes(f)) {
+		if ($("#" + d + "_div"))
+		{ $("#" + d + "_div").hide(); }
+	}
+	else {
+		if ($("#" + d + "_div")) { $("#" + d + "_div").show(); }
+	}
 }
 
- 
-function changeCity(c, a, t) {
+function changeCity(c, a) {
     $("#" + a).html('<option value="0" >请选择</option>');
     $("#" + a).unbind("change");
     c = parseInt(c); 
@@ -101,8 +106,7 @@ function changeCity(c, a, t) {
         if (_d[i] == undefined) continue; 
         str += "<option value='" + i + "' >" + _d[i] + "</option>";
     }
-    $("#" + a).html(str);
-    
+    $("#" + a).html(str);    
 }
 
 function removeOptions(c) {
